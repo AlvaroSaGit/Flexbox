@@ -5,9 +5,33 @@
 }
 
 .main{
-  width: 1200px;
+  width: 90%;
   height: 600px;
   background-color: beige;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  /*PREDETERMINADO: Main axis = x -- Cross axis - y*/
+  /* flex-direction: column; Se cambia el eje principal, pasa a ser Y */
+  /* flex-wrap: wrap; */
+  /* justify-content: flex-end; */
+  /* flex-wrap: nowrap; */
+  /* flex-wrap: wrap; Si se colapsa, pasa a la siguiente linea*/
+  /* flex-wrap: wrap-reverse; */
+  /* flex-flow: column wrap-reverse; Es un shorthand */
+  /*JUSTIFY-CONTENT EJE PRINCIPAL*/
+  /*justify-content: space-between; /*Sin espaciado en los laterales, los items tendran espacio en las intersecciones hasta ocupar lo largo*/
+  /*justify-content: space-around; /*Espaciado en los laterales sin ser iguales entre las intersecciones de los items*/
+  /*justify-content: space-evenly; /*Espaciado en los laterales siendo iguales entre las intersecciones de los items*/
+  /*ALING-ITEM PARA LOS ITEMS DENTRO DEL CONTENIDO*/
+  /*align-items: flex-end; /*Cross axis*/
+  /* align-items: center; */
+  /* align-items: stretch; Ocupa todo el espacio los items que puedan dentro del contenedor*/
+  /* align-items: baseline; */
+  /* align-content: center;
+  align-content: space-between;
+  align-content: space-around; */
+  /* gap: 20px; espacio controlado por usted */
 }
 
 .main__caja{
@@ -15,3 +39,42 @@
   height: 200px;
   background-color: tomato;
 }
+
+.main__caja:nth-child(1){
+  /*flex-grow: 1; /*Capacidad de crecimiento que tienen los items*/
+  background-color: yellow;
+  flex-basis: 600px; /*Respeta el max, no respeta el width o height*/
+  /* order: 2; */
+}
+
+.main__caja:nth-child(2){
+  /*flex-shrink: 1; /*capacidad de encogerse entre los demas items*/
+  background-color: blue;
+  /* order: 1; */
+}
+
+.main__caja:nth-child(3){
+  /* flex-grow: 1; */
+  background-color: green;
+  flex: 1 0 400px; /*shorthand: Flex-grow flex-shrink flex-basis */
+  /* order: 0; */
+}
+
+@media(max-width:800px){
+  .main__caja:nth-child(1){
+    /* background-color: yellow; */
+    order: 2;
+  }
+
+  .main__caja:nth-child(2){
+    /* background-color: blue; */
+    order: 1;
+  }
+
+  .main__caja:nth-child(3){
+    /* background-color: green; */
+    order: 0;
+  }
+}
+
+  
